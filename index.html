@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Love! 🎉</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Confetti library -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- JS -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Intro / Countdown overlay -->
+<!-- Intro / Countdown overlay -->
+<div id="intro" class="intro" aria-live="polite" aria-atomic="true">
+  <div class="intro-box">
+    <div id="introText" class="intro-text">Loading…</div>
+  </div>
+</div>
+<!---->
+
+  <div class="stars" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+  <div class="balloons" aria-hidden="true" id="balloons"></div>
+
+  <header class="hidden-at-start">
+  <h1 class="title">
+    <span class="type" id="typeTarget">Happy Birthday, <span id="nameTarget">My Gurll</span>! 💖</span>
+  </h1>
+  <p class="subtitle">Today is all about you — your smile, your kindness, and all the little moments that make you, you.</p>
+  <div class="cta">
+    <button class="btn" id="celebrateBtn">Celebrate 🎉</button>
+  </div>
+  <p class="subtitle" style="margin-top:14px">Scroll down for memories and little love notes ↓</p>
+</header>
+
+
+  <main>
+    <section>
+      <div class="panel">
+        <h2>A Special Day 📸</h2>
+        <p class="lead">A few snapshots from a day that did not go well objectively speaking but you being there made it fun and filled my heart</p>
+        <div class="gallery" id="gallery">
+          <figure class="polaroid" style="--r:-3deg">
+            <img src="train.jpg" alt="">
+            <small>The Metro Ride ✨</small>
+          </figure>
+          <figure class="polaroid" style="--r:2deg">
+            <img src="library.jpg" alt="">
+            <small>At least we tried 😭</small>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>10 Things you are to me 🤗🤭 (Limiting it cause of space 😭)</h2>
+        <div class="reasons">
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#1</div>
+            <div class="card back">My gurl</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#2</div>
+            <div class="card back">My heart</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#3</div>
+            <div class="card back">My babyyy</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#4</div>
+            <div class="card back">My world </div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#5</div>
+            <div class="card back">My tortiii</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#6</div>
+            <div class="card back">My cactus</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#7</div>
+            <div class="card back">My love</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#8</div>
+            <div class="card back">My matcha Spanish iced latte with extra icee</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#9</div>
+            <div class="card back">My joy</div>
+          </div></div>
+
+          <div class="flip"><div class="flip-inner">
+            <div class="card">#10</div>
+            <div class="card back">My everything</div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>Some notes for you ✍️</h2>
+        <p class="lead" id="note">
+          My heart and soul never left your side. <br><br>
+          I am always thinking of you in every little thing in my life, from drinking water to running outside. <br><br>
+          My main wish in this life is to see you happy <br><br>
+          I want to spoil you so much that you will get sick of it<br><br>
+          I laaav yew soooooooo much (not saying more cause it is your bday and you can have it today)<br><br>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with 💖 and JavaScript.
+  </footer>
+</body>
+</html>

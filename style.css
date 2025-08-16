@@ -1,0 +1,225 @@
+:root {
+  --bg:#0f0b1e;
+  --text:#fff7fb;
+  --accent:#ff6fa9;
+  --accent-2:#8ee3ff;
+  --gold:#ffd76b;
+  --card:#201a3d;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+body {
+  margin:0; padding:0;
+  background: var(--bg);
+  font-family:Poppins, sans-serif;
+  color:var(--text);
+}
+
+/* Headings & text */
+header {
+  min-height:90vh; display:grid; place-items:center; text-align:center;
+  padding:2rem;
+}
+.title { font-size:3rem; font-weight:800; }
+
+/* Buttons */
+button {
+  border:none; cursor:pointer;
+  padding:12px 18px; border-radius:10px;
+  font-weight:700; margin:6px;
+  box-shadow:var(--shadow);
+}
+.btn { background:var(--accent); color:#16081a; }
+
+/* Panels */
+.panel {
+  background:#1a1436; margin:2rem auto; padding:1.5rem;
+  border-radius:14px; max-width:900px;
+}
+
+/* Gallery */
+.gallery { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+.polaroid { background:#fff; color:#000; padding:.5rem; border-radius:10px; }
+/* Gallery layout (keeps nice card widths) */
+.gallery{
+  display:grid;
+  gap:1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Uniform, responsive image frames */
+.polaroid img{
+  width:100%;
+  aspect-ratio: 4 / 5;   /* pick a look: 4/5, 3/4, 1/1, 16/9 */
+  object-fit: cover;      /* crop to fill frame neatly */
+  border-radius:6px;
+  display:block;
+}
+
+
+
+/* Flip cards */
+/* Flip container is only as big as the card */
+.flip{
+  perspective: 1000px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* The 3D stage matches the card size */
+.flip-inner{
+  position: relative;
+  width: 100%;
+  height: 150px;             /* adjust the card height you want */
+  transform-style: preserve-3d;
+  transition: transform .6s;
+  border-radius: 10px;        /* so the rounded corners match both sides */
+}
+
+/* Flip on hover (desktop) and when .is-flipped is added (click/tap) */
+.flip:hover .flip-inner,
+.flip.is-flipped .flip-inner{
+  transform: rotateY(180deg);
+}
+
+/* Cards are stacked perfectly on top of each other */
+.card{
+  position: absolute;
+  inset: 0;                   /* fill the .flip-inner box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background: var(--card);
+  color: var(--text);
+}
+
+/* Back face */
+.card.back{
+  transform: rotateY(180deg);
+  background: #2a2157;        /* your back color */
+}
+
+.reasons{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--accent); /* will be overridden in JS */
+  transform: rotate(45deg);
+  animation: floatUp linear forwards;
+  opacity: .8;
+  filter: drop-shadow(0 0 6px #ff6fa980);
+  border-radius: 0;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -50%;
+  left: 0;
+}
+
+.heart:after {
+  left: -50%;
+  top: 0;
+}
+
+
+
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(45deg) scale(.8);
+    opacity: 0;
+  }
+  10% { opacity: .85; }
+  to {
+    transform: translateY(-110vh) rotate(45deg) scale(1.4);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+/* Intro / countdown overlay */
+.intro{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;                 /* above everything */
+  display: grid;
+  place-items: center;
+  background: rgba(15,11,30,0.94); /* matches --bg with slight transparency */
+  backdrop-filter: blur(2px);
+  transition: opacity .5s ease, visibility .5s ease;
+}
+.intro.hide{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-box{
+  text-align: center;
+  padding: 28px 24px;
+  background: #1a1436;
+  border: 1px solid #ffffff12;
+  border-radius: 16px;
+  max-width: 640px;
+  width: min(90vw, 640px);
+  box-shadow: var(--shadow);
+}
+
+.intro-text{
+  font-size: clamp(20px, 3.6vw, 28px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+/* Soft appear animation for each message */
+@keyframes introFade {
+  from { opacity: 0; transform: translateY(6px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+.intro-text.animating{
+  animation: introFade .35s ease;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .intro, .intro *{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+/* Hide elements until intro ends */
+.hidden-at-start {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hidden-at-start.revealed {
+  opacity: 1;
+}
+
